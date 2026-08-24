@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Styles ===== */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-earth-800 bg-cream-50 antialiased;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold leading-tight;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl; }
+  h2 { @apply text-3xl md:text-4xl; }
+  h3 { @apply text-2xl md:text-3xl; }
+  h4 { @apply text-xl md:text-2xl; }
+
+  img {
+    @apply max-w-full h-auto;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  button {
+    @apply cursor-pointer transition-all duration-200;
+  }
+}
+
+/* ===== Component Utilities ===== */
+@layer components {
+  /* Primary action button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg
+           bg-brand-400 text-white font-body font-semibold
+           hover:bg-brand-500 active:bg-brand-600
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Secondary / outline button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg
+           border-2 border-brand-400 text-brand-500 font-body font-semibold
+           hover:bg-brand-50 active:bg-brand-100
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2
+           px-6 py-3 rounded-lg
+           bg-red-500 text-white font-body font-semibold
+           hover:bg-red-600 active:bg-red-700
+           focus:outline-none focus:ring-2 focus:ring-red-300 focus:ring-offset-2
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Ghost / text button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           px-4 py-2 rounded-lg
+           text-earth-600 font-body font-medium
+           hover:bg-cream-200 active:bg-cream-300
+           focus:outline-none focus:ring-2 focus:ring-brand-300
+           transition-all duration-200;
+  }
+
+  /* Card base */
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-cream-200
+           transition-shadow duration-300
+           hover:shadow-md;
+  }
+
+  /* Form input */
+  .input {
+    @apply w-full px-4 py-3 rounded-lg
+           border border-cream-300 bg-white
+           font-body text-earth-800 placeholder-earth-300
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400
+           transition-all duration-200;
+  }
+
+  /* Form select */
+  .select {
+    @apply w-full px-4 py-3 rounded-lg appearance-none
+           border border-cream-300 bg-white
+           font-body text-earth-800
+           focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400
+           transition-all duration-200;
+  }
+
+  /* Form label */
+  .label {
+    @apply block text-sm font-body font-medium text-earth-600 mb-1.5;
+  }
+
+  /* Error text under inputs */
+  .input-error {
+    @apply text-sm text-red-500 mt-1;
+  }
+
+  /* Admin card (dark theme) */
+  .admin-card {
+    @apply bg-admin-600 rounded-xl border border-admin-500
+           shadow-lg transition-all duration-300
+           hover:border-admin-400;
+  }
+
+  /* Admin input */
+  .admin-input {
+    @apply w-full px-4 py-3 rounded-lg
+           border border-admin-500 bg-admin-700
+           font-body text-gray-100 placeholder-gray-500
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-brand-400
+           transition-all duration-200;
+  }
+
+  /* Badge base */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full
+           text-xs font-body font-semibold uppercase tracking-wider;
+  }
+
+  /* Section wrapper */
+  .section {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Page title */
+  .page-title {
+    @apply font-heading text-3xl md:text-4xl font-bold text-earth-800;
+  }
+
+  /* Admin page title */
+  .admin-page-title {
+    @apply font-body text-2xl md:text-3xl font-bold text-gray-100;
+  }
+}
+
+/* ===== Utility Extensions ===== */
+@layer utilities {
+  /* Spicy badge glow */
+  .spicy-glow {
+    @apply text-red-500;
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+  }
+
+  /* Scrollbar styling for admin */
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background: theme('colors.admin.700');
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background: theme('colors.admin.400');
+    border-radius: 3px;
+  }
+}
